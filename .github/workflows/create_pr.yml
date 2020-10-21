@@ -7,7 +7,7 @@ on:
 jobs:
   create-pr:
     name: Create PR
-    runs-on: ubuntu-latest
+    runs-on: node-latest
     steps:
       - name: Checkout to actions-pr-test-1
         uses: actions/checkout@v2
@@ -26,7 +26,7 @@ jobs:
           git config remote.origin.url "git@github.com:tatane616/actions-pr-test-1.git"
           git checkout master
       
-      - name: Create PR
+      - name: Push
         env:
           GIT_SSH_COMMAND: ssh -i ~/deploy_key.pem -o StrictHostKeyChecking=no -F /dev/null
         run: |
@@ -36,4 +36,8 @@ jobs:
           git commit -m "commit by actions"
           git pull origin master
           git push origin master
+
+      - name: Create PR
+        run |
+          npx gh pr --submit --title "PR from actions"
           
