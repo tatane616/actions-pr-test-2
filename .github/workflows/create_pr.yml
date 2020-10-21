@@ -39,6 +39,8 @@ jobs:
           git push origin hoge
 
       - name: Create PR
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npx gh pr create hoge --title "PR from actions"
           
