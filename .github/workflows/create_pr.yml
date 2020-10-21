@@ -42,6 +42,8 @@ jobs:
       - name: Create Pull Request
         id: cpr
         uses: peter-evans/create-pull-request@v3
+        env:
+          GIT_SSH_COMMAND: ssh -i ~/deploy_key.pem -o StrictHostKeyChecking=no -F /dev/null
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: Update report
