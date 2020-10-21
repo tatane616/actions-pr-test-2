@@ -37,6 +37,7 @@ jobs:
           git add .
           git commit -m "commit by actions"
           git push origin hoge
+          git checkout master
 
       - name: Create Pull Request
         id: cpr
