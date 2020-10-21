@@ -38,6 +38,6 @@ jobs:
           git push origin master
 
       - name: Create PR
-        run |
+        run: |
           npx gh pr --submit --title "PR from actions"
           
