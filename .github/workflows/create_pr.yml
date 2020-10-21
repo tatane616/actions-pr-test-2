@@ -1,6 +1,8 @@
 name: Create PR
 
 on:
+  push:
+    branches: [master]
   release:
     types: [published]
 
