@@ -32,10 +32,10 @@ jobs:
         run: |
           ls
           git pull origin master
-          git switch hoge
           if ! git switch --quiet hoge; then
             git switch -c hoge
           fi
+          git switch hoge
           date >| hoge.txt
           git add .
           git commit -m "commit by actions"
