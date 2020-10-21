@@ -35,6 +35,7 @@ jobs:
           date >| hoge.txt
           git add .
           git commit -m "commit by actions"
+          git pull
           git push origin hoge
 
       - name: Create PR
