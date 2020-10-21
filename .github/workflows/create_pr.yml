@@ -32,10 +32,10 @@ jobs:
         run: |
           ls
           git checkout -b hoge
+          git pull origin hoge
           date >| hoge.txt
           git add .
           git commit -m "commit by actions"
-          git pull origin hoge
           git push origin hoge
 
       - name: Create PR
