@@ -42,5 +42,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          npx gh pr create hoge --title "PR from actions"
+          npx gh pr checkout hoge
+          npx gh pr create --title "PR from actions"
           
