@@ -19,10 +19,9 @@ jobs:
         with:
           repository: tatane616/actions-pr-test-1
 
-      - name: Create PR
+      - name: Checkout
         env:
           DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
-          GIT_SSH_COMMAND: ssh -i ~/deploy_key.pem -o StrictHostKeyChecking=no -F /dev/null
         run: |
           ls
           echo "$GITHUB_IO_REPO_DEPLOY_KEY" > ~/deploy_key.pem
@@ -31,6 +30,13 @@ jobs:
           git config --global user.name "tatane"
           git config remote.origin.url "git@github.com:tatane616/actions-pr-test-1.git"
           git checkout master
+      
+      - name: Create PR
+        env:
+          GIT_SSH_COMMAND: ssh -i ~/deploy_key.pem -o StrictHostKeyChecking=no -F /dev/null
+        run: |
+          ls
+          ssh -i ~/deploy_key.pem -o StrictHostKeyChecking=no -F /dev/null
           date >| hoge.txt
           git add .
           git commit -m "commit by actions"
