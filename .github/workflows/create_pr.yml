@@ -3,23 +3,18 @@ name: Create PR
 on:
   push:
     branches: [master]
-  release:
-    types: [published]
 
 jobs:
   create-pr:
     name: Create PR
     runs-on: ubuntu-latest
     steps:
-      - name: Test
-        run: |
-          echo "hello world"
       - name: Checkout to actions-pr-test-1
         uses: actions/checkout@v2
         with:
           repository: tatane616/actions-pr-test-1
 
-      - name: Checkout
+      - name: Set git config
         env:
           DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
         run: |
@@ -36,7 +31,6 @@ jobs:
           GIT_SSH_COMMAND: ssh -i ~/deploy_key.pem -o StrictHostKeyChecking=no -F /dev/null
         run: |
           ls
-          ssh -i ~/deploy_key.pem -o StrictHostKeyChecking=no -F /dev/null
           date >| hoge.txt
           git add .
           git commit -m "commit by actions"
