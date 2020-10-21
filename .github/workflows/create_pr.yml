@@ -31,7 +31,6 @@ jobs:
           GIT_SSH_COMMAND: ssh -i ~/deploy_key.pem -o StrictHostKeyChecking=no -F /dev/null
         run: |
           ls
-          git pull origin master
           git checkout -b hoge
           date >| hoge.txt
           git add .
