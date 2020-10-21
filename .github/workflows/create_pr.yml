@@ -47,7 +47,7 @@ jobs:
           committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           signoff: false
-          branch: example-patches
+          branch: hoge
           delete-branch: true
           title: '[Example] Update report'
           body: |
