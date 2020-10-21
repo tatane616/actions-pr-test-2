@@ -26,6 +26,8 @@ jobs:
           ls
           echo "$GITHUB_IO_REPO_DEPLOY_KEY" > ~/deploy_key.pem
           chmod 600 ~/deploy_key.pem
+          git config --global user.email "tatane616@gmail.com"
+          git config --global user.name "tatane"
           date >| hoge.txt
           git add .
           git commit -m "commit by actions"
