@@ -34,5 +34,5 @@ jobs:
           date >| hoge.txt
           git add .
           git commit -m "commit by actions"
-          cat ~/deploy_key.pem
+          git pull
           
