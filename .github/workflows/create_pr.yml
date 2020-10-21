@@ -1,0 +1,14 @@
+name: Create PR
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  create-pr:
+    name: Create PR
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test
+        run: |
+          echo "hello world"
