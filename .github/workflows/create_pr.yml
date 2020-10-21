@@ -34,5 +34,6 @@ jobs:
           date >| hoge.txt
           git add .
           git commit -m "commit by actions"
-          git pull
+          git pull origin master
+          git push origin master
           
