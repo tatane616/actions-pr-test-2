@@ -31,13 +31,14 @@ jobs:
           GIT_SSH_COMMAND: ssh -i ~/deploy_key.pem -o StrictHostKeyChecking=no -F /dev/null
         run: |
           ls
+          git pull origin master
+          git checkout -b hoge
           date >| hoge.txt
           git add .
           git commit -m "commit by actions"
-          git pull origin master
-          git push origin master
+          git push origin hoge
 
       - name: Create PR
         run: |
-          npx gh pr --submit --title "PR from actions"
+          npx gh pr create hoge --title "PR from actions"
           
