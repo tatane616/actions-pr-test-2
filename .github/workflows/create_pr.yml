@@ -20,7 +20,8 @@ jobs:
           repository: tatane616/actions-pr-test-1
 
       - name: Create PR
-        env: DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+        env:
+          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
         run: |
           ls
           echo "$GITHUB_IO_REPO_DEPLOY_KEY" > ~/deploy_key.pem
