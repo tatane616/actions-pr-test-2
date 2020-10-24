@@ -30,7 +30,7 @@ jobs:
         env:
           GIT_SSH_COMMAND: ssh -i ~/deploy_key.pem -o StrictHostKeyChecking=no -F /dev/null
         run: |
-          date >> $DATE
+          DATE=`date +%s`
           git pull origin master
           if ! git switch --quiet $DATE ; then
             git switch -c $DATE
