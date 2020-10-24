@@ -29,15 +29,14 @@ jobs:
       - name: Push
         env:
           GIT_SSH_COMMAND: ssh -i ~/deploy_key.pem -o StrictHostKeyChecking=no -F /dev/null
-          DATE: `date`
         run: |
-          ls
+          date >> $DATE
           git pull origin master
           if ! git switch --quiet $DATE ; then
             git switch -c $DATE
           fi
           git switch $DATE
-          date >| hoge.txt
+          echo $DATE >| hoge.txt
           git add .
           git commit -m "commit by actions"
           git push origin $DATE
