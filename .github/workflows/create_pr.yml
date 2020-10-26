@@ -15,30 +15,32 @@ jobs:
       - uses: actions/setup-node@v1
 
       - name: Make changes to pull request
-        run: date +%s > report.txt
-
-      - name: Create Pull Request
-        id: cpr
-        uses: peter-evans/create-pull-request@v3
-        with:
-          token: ${{ secrets.PAT }}
-          commit-message: Update report
-          committer: GitHub <noreply@github.com>
-          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
-          signoff: false
-          branch: ${{ github.eveneet.release.tag_name }}
-          delete-branch: true
-          title: 'Bump version to ${{ github.eveneet.release.tag_name }}'
-          body: |
-            Bump version to ${{ github.eveneet.release.tag_name }}
-          assignees: tatane616
-          reviewers: tatane616
-          draft: false
-
-      - name: Check outputs
         run: |
-          echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
-          echo "Pull Request URL - ${{ steps.cpr.outputs.pull-request-url }}"
+          date +%s > report.txt
+          echo ${{ github.eveneet.release.tag_name }}
+
+      # - name: Create Pull Request
+      #   id: cpr
+      #   uses: peter-evans/create-pull-request@v3
+      #   with:
+      #     token: ${{ secrets.PAT }}
+      #     commit-message: Update report
+      #     committer: GitHub <noreply@github.com>
+      #     author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+      #     signoff: false
+      #     branch: ${{ github.eveneet.release.tag_name }}
+      #     delete-branch: true
+      #     title: 'Bump version to ${{ github.eveneet.release.tag_name }}'
+      #     body: |
+      #       Bump version to ${{ github.eveneet.release.tag_name }}
+      #     assignees: tatane616
+      #     reviewers: tatane616
+      #     draft: false
+
+      # - name: Check outputs
+      #   run: |
+      #     echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
+      #     echo "Pull Request URL - ${{ steps.cpr.outputs.pull-request-url }}"
 
       # - name: Set git config
       #   env:
