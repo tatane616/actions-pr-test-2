@@ -2,7 +2,8 @@ name: Create PR
 
 on:
   release:
-    type: [published]
+    types:
+      - published
 
 jobs:
   create-pr:
