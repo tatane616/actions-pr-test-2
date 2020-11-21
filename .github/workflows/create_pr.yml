@@ -34,7 +34,8 @@ jobs:
           title: 'Bump version to ${{ github.event.release.tag_name }}'
           body: |
             Bump version to ${{ github.event.release.tag_name }}
-          assignees: tatane616
+            ${{ github.event.release.author.login }}
+          assignees: ${{ github.event.release.author.login }}
           reviewers: ${{ github.event.release.author.login }}
           draft: false
 
